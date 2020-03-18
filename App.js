@@ -25,9 +25,23 @@ import {
   Modal,
   Lightbox,
   ActionConst,
+  Reducer,
 } from 'react-native-router-flux';
 import EchoView from './components/EchoView';
 import Launch from './components/Launch';
+import Login from './components/Login';
+
+const reducerCreate = params => {
+  const defaultReducer = new Reducer(params);
+  return (state, action) => {
+    console.log('reducer: ACTION:', action);
+    return defaultReducer(state, action);
+  };
+};
+
+const stateHandler = (prevState, newState, action) => {
+  console.log('onStateChange: ACTION:', action);
+};
 
 const App = () => {
   return (
@@ -46,6 +60,13 @@ const App = () => {
               />
             </Stack>
           </Lightbox>
+          <Stack key="login" path="login/:data">
+            <Scene
+              key="loginModal"
+              component={Login}
+              onExit={() => console.log('Login: onExit')}
+            />
+          </Stack>
         </Modal>
       </Overlay>
     </Router>

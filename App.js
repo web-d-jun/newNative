@@ -7,10 +7,23 @@
  */
 
 import React, {useState} from 'react';
-import {View, Text, Button} from 'react-native';
+import {
+  View,
+  Text,
+  TextInput,
+  Button,
+  StyleSheet,
+  TouchableHighlight,
+  ScrollView,
+  Image,
+} from 'react-native';
+import {
   Router,
   Stack,
   Scene,
+  Overlay,
+  Modal,
+  Lightbox,
   ActionConst,
 } from 'react-native-router-flux';
 import EchoView from './components/EchoView';
